@@ -20,9 +20,9 @@ namespace TMLPatcher_UI.ViewModels
             for (int i = 0; i < 50; i++)
                 files.Add(new FileItem($"Item {i}", "C:\\Users\\ikerv\\Documents\\My Games\\Terraria\\ModLoader\\Mods\\CheatSheet.tmod"));
 
-            FileListing = new FileListingViewModel(files);
+            FileManage = new FileManageViewModel(files);
         }
         
-        public FileListingViewModel FileListing { get; }
+        public FileManageViewModel FileManage { get; }
     }
 }

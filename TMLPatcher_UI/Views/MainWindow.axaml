@@ -1,19 +1,13 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:TMLPatcher_UI.ViewModels"
-        xmlns:views="clr-namespace:TMLPatcher_UI.Views"
-        Width="800" Height="450" CanResize="False"
+        Width="400" Height="350" CanResize="False"
         x:Class="TMLPatcher_UI.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="TMLPatcher_UI"
-        >
+        Content="{Binding FileManage}">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
-    <DockPanel>
-        <views:FileListingView Content="{Binding FileListing}" DockPanel.Dock="Left"/>
-        <CheckBox DockPanel.Dock="Right">Info</CheckBox>
-    </DockPanel>
 </Window>
