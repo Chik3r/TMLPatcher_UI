@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace TMLPatcher_UI.Views
 {
-    public class FileListing : UserControl
+    public class FileListingView : UserControl
     {
-        public FileListing()
+        public FileListingView()
         {
             InitializeComponent();
         }
