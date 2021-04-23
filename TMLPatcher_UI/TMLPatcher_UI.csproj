@@ -5,13 +5,21 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="Models\"/>
-        <AvaloniaResource Include="Assets\**"/>
+        <Folder Include="Models\" />
+        <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.0"/>
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.0"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0"/>
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0"/>
+        <PackageReference Include="Avalonia" Version="0.10.0" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="TML.Files, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\TML.Files.dll</HintPath>
+      </Reference>
+      <Reference Include="TML.Patcher.Backend, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\TML.Patcher.Backend.dll</HintPath>
+      </Reference>
     </ItemGroup>
 </Project>
