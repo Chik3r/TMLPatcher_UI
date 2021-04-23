@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMLPatcher_UI", "TMLPatcher_UI\TMLPatcher_UI.csproj", "{864290B7-2CC1-41F9-98B3-4FB74203E32F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{864290B7-2CC1-41F9-98B3-4FB74203E32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864290B7-2CC1-41F9-98B3-4FB74203E32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864290B7-2CC1-41F9-98B3-4FB74203E32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864290B7-2CC1-41F9-98B3-4FB74203E32F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
