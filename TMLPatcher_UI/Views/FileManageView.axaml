@@ -1,9 +1,6 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="clr-namespace:TMLPatcher_UI.Views"
-             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+             Width="400" Height="350"
              x:Class="TMLPatcher_UI.Views.FileManageView">
     <DockPanel>
         <Border DockPanel.Dock="Left" CornerRadius="5" BorderThickness="1" BorderBrush="black" Margin="5" Width="200">
@@ -18,13 +15,13 @@
                             <TextBlock Text="{Binding}" TextWrapping="Wrap" />
                         </Label>
                     </DataTemplate>
-                </ListBox.ItemTemplate>    
+                </ListBox.ItemTemplate>
             </ListBox>
         </Border>
         
         <StackPanel DockPanel.Dock="Right" Margin="5" Spacing="5">
             <Button IsEnabled="{Binding !CurrentlyExtracting}" 
-                    Command="{Binding $parent[Window].DataContext.FileManage.ExtractMod}"
+                    Command="{Binding ExtractMod}"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Center">
                 Extract mod!
