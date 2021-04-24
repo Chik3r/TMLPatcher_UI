@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -93,6 +94,19 @@ namespace TMLPatcher_UI.ViewModels
             {
                 _progressReporter.Finish();
                 CurrentlyExtracting = false;
+
+                // Format the path to the extracted folder
+                string folderPath = Path.Combine(Program.ExtractDirectory, SelectedFile.FileName);
+                if (!folderPath.EndsWith(Path.DirectorySeparatorChar))
+                    folderPath += Path.DirectorySeparatorChar;
+                
+                // Open the folder
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = folderPath,
+                    UseShellExecute = true,
+                    Verb = "open"
+                });
             }
         }
     }
