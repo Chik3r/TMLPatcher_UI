@@ -3,8 +3,8 @@
         xmlns:vm="using:TMLPatcher_UI.ViewModels"
         Width="400" Height="350" CanResize="False"
         x:Class="TMLPatcher_UI.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="TMLPatcher_UI"
+        Icon="/Assets/icon.ico"
+        Title="TMLPatcher"
         Content="{Binding FileManage}">
 
     <Design.DataContext>
