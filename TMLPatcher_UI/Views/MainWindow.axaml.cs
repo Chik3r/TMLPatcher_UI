@@ -6,8 +6,12 @@ namespace TMLPatcher_UI.Views
 {
     public class MainWindow : Window
     {
+        public static MainWindow Instance { get; private set; }
+        
         public MainWindow()
         {
+            Instance = this;
+            
             InitializeComponent();
 #if DEBUG
             this.AttachDevTools();

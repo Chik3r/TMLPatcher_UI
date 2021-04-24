@@ -7,7 +7,11 @@
              x:Class="TMLPatcher_UI.Views.FileManageView">
     <DockPanel>
         <Border DockPanel.Dock="Left" CornerRadius="5" BorderThickness="1" BorderBrush="black" Margin="5" Width="200">
-            <ListBox Margin="1" BorderThickness="0" Items="{Binding Files}">
+            <ListBox Margin="1" 
+                     BorderThickness="0" 
+                     Items="{Binding Files}"
+                     SelectionMode="Single"
+                     SelectedItem="{Binding SelectedFile, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Label>
