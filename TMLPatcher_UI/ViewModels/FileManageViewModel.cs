@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading.Tasks;
@@ -37,7 +36,7 @@ namespace TMLPatcher_UI.ViewModels
             get => _extractProgress;
             set => this.RaiseAndSetIfChanged(ref _extractProgress, value);
         }
-        
+
         public FileItem SelectedFile
         {
             get => _selectedFile;
@@ -46,46 +45,55 @@ namespace TMLPatcher_UI.ViewModels
 
         public async void Populate()
         {
+            // Create a new folder dialog
             OpenFolderDialog folderDialog = new();
             folderDialog.Title = "Select your Mods folder";
+
+            // Wait for the user to select the folder
+            string folder = await folderDialog.ShowAsync(MainWindow.Instance);
             
-            var folder = await folderDialog.ShowAsync(MainWindow.Instance);
+            // Check if the folder exists
             if (string.IsNullOrEmpty(folder))
                 return;
-            
-            System.Console.WriteLine($"Folder: {folder}");
+
             if (!Directory.Exists(folder))
                 return;
 
+            // Get all files in the folder and add them to the listbox
             string[] files = Directory.GetFiles(folder, "*.tmod");
             foreach (string file in files) Files.Add(new FileItem(Path.GetFileNameWithoutExtension(file), file));
         }
 
         public void ExtractMod()
         {
-            // CurrentlyExtracting = !CurrentlyExtracting;
-            // var rand = new System.Random();
-            // ExtractProgress = rand.Next(0, 101);
-            
+            // Start the unpack request with a new progress reporter
+            // The progress reporter will update the progress bar
             _progressReporter = new ProgressReporter();
             UnpackRequest request = new UnpackRequest(
                 Directory.CreateDirectory(Path.Combine(Program.ExtractDirectory, SelectedFile.FileName)),
                 SelectedFile.FilePath, 4, _progressReporter);
 
-            _progressReporter.UpdateProgress += i =>
-            {
-                ExtractProgress = i;
-                if (i == 100)
-                {
-                    _progressReporter.Finish();
-                    CurrentlyExtracting = false;
-                }
-            };
-            
+            _progressReporter.UpdateProgress += UpdateProgress;
+
+            // Start a new task so that the unpack request runs in a separate thread from the ui
             Task.Run(() => request.ExecuteRequest());
             _progressReporter.Start();
-            
+
+            // Disable the extract mod button
             CurrentlyExtracting = true;
+        }
+
+        private void UpdateProgress(int i)
+        {
+            // Set the extract progress to the progress
+            ExtractProgress = i;
+
+            // Check if the extraction has completed
+            if (i == 100)
+            {
+                _progressReporter.Finish();
+                CurrentlyExtracting = false;
+            }
         }
     }
 }
