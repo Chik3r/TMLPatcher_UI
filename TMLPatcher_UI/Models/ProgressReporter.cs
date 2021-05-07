@@ -73,7 +73,9 @@ namespace TMLPatcher_UI.Models
                 if (Disposed) return;
 
                 ResetTimer();
-                UpdateProgress.Invoke((int) ((float)CurrentElements / MaxElements * 100f));
+                
+                if (MaxElements.HasValue)
+                    UpdateProgress.Invoke((int) ((float)CurrentElements / MaxElements * 100f));
             }
         }
 
