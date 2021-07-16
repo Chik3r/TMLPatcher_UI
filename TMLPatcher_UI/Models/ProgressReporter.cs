@@ -56,7 +56,7 @@ namespace TMLPatcher_UI.Models
                 return;
             
             Dispose();
-            lock (Timer) UpdateProgress.Invoke((int) (CurrentElements / MaxElements * 100f));
+            lock (Timer) UpdateProgress.Invoke((int) (CurrentElements / (MaxElements ?? CurrentElements) * 100f));
         }
 
         public void Dispose()
