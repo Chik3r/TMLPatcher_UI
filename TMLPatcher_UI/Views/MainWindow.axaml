@@ -1,11 +1,15 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:TMLPatcher_UI.ViewModels"
-        Width="400" Height="350" CanResize="False"
+        Width="400" Height="400" CanResize="False"
         x:Class="TMLPatcher_UI.Views.MainWindow"
         Icon="/Assets/icon.ico"
-        Title="TMLPatcher"
-        Content="{Binding FileManage}">
+        Title="TMLPatcher">
+
+    <TabControl>
+        <TabItem Height="50" Header="Extract" VerticalContentAlignment="Bottom" Content="{Binding FileManage}"/>
+        <TabItem Height="50" Header="Repack" VerticalContentAlignment="Bottom" Content="{Binding RepackModel}"/>
+    </TabControl>
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>

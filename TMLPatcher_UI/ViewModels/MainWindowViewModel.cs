@@ -11,8 +11,12 @@ namespace TMLPatcher_UI.ViewModels
             
             FileManage = new FileManageViewModel(new FileItem[] {});
             FileManage.Populate();
+
+            RepackModel = new RepackViewModel();
+            RepackModel.Populate();
         }
         
         public FileManageViewModel FileManage { get; }
+        public RepackViewModel RepackModel { get; }
     }
 }
