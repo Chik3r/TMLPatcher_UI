@@ -5,7 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using ReactiveUI;
-using TML.Patcher.Backend.Packing;
+using TML.Patcher.Packing;
 using TMLPatcher_UI.Models;
 using TMLPatcher_UI.Views;
 
