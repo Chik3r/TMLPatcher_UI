@@ -1,0 +1,35 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="400" Height="350"
+             x:Class="TMLPatcher_UI.Views.RepackView">
+    <DockPanel>
+        <Border DockPanel.Dock="Left" CornerRadius="5" BorderThickness="1" BorderBrush="black" Margin="5" Width="200">
+            <ListBox Margin="1" 
+                     BorderThickness="0" 
+                     Items="{Binding Files}"
+                     SelectionMode="Single"
+                     SelectedItem="{Binding SelectedFile, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label>
+                            <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                        </Label>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+        
+        <StackPanel DockPanel.Dock="Right" Margin="5" Spacing="5">
+            <Button IsEnabled="{Binding !CurrentlyExtracting}" 
+                    Command="{Binding ExtractMod}"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center">
+                Extract mod!
+            </Button>
+            <ProgressBar 
+                IsVisible="{Binding CurrentlyExtracting}" 
+                MinWidth="10"
+                Value="{Binding ExtractProgress}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
