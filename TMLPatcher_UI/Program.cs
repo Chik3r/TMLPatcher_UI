@@ -8,6 +8,7 @@ namespace TMLPatcher_UI
     class Program
     {
         public static string ExtractDirectory => Path.Combine(Environment.CurrentDirectory, "Extracted");
+        public static string RepackDirectory => Path.Combine(Environment.CurrentDirectory, "Repacked");
         
         // Initialization code. Don't use any Avalonia, third-party APIs or any
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
