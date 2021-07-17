@@ -24,4 +24,8 @@
         <HintPath>lib\TML.Patcher.Backend.dll</HintPath>
       </Reference>
     </ItemGroup>
+
+    <PropertyGroup>
+        <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+    </PropertyGroup>
 </Project>
