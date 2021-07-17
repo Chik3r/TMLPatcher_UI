@@ -6,12 +6,14 @@
         Icon="/Assets/icon.ico"
         Title="TMLPatcher">
 
-    <TabControl>
-        <TabItem Height="50" Header="Extract" VerticalContentAlignment="Bottom" Content="{Binding FileManage}"/>
-        <TabItem Height="50" Header="Repack" VerticalContentAlignment="Bottom" Content="{Binding RepackModel}"/>
+    <TabControl SelectionChanged="ChangeSelectedTab">
+        <TabItem Name="ExtractTab" Height="50" Header="Extract" VerticalContentAlignment="Bottom"
+                 Content="{Binding FileManage}" />
+        <TabItem Name="RepackTab" Height="50" Header="Repack" VerticalContentAlignment="Bottom"
+                 Content="{Binding RepackModel}" />
     </TabControl>
 
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Design.DataContext>
 </Window>

@@ -76,6 +76,8 @@ namespace TMLPatcher_UI.ViewModels
 
         public void Populate()
         {
+            Files.Clear();
+
             DirectoryInfo extractDir = Directory.CreateDirectory(Program.ExtractDirectory);
 
             // Get all directories in extract dir

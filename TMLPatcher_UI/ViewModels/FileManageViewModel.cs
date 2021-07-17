@@ -13,6 +13,8 @@ namespace TMLPatcher_UI.ViewModels
 {
     public class FileManageViewModel : ViewModelBase
     {
+        private static string? modPath = null;
+        
         private bool _currentlyExtracting;
         private int _extractProgress;
         private FileItem _selectedFile;
@@ -44,21 +46,30 @@ namespace TMLPatcher_UI.ViewModels
             set => this.RaiseAndSetIfChanged(ref _selectedFile, value);
         }
 
+        private async Task<string> GetModPath()
+        {
+            while (modPath is null)
+            {
+                // Create a new folder dialog
+                OpenFolderDialog folderDialog = new();
+                folderDialog.Title = "Select your Mods folder";
+
+                // Wait for the user to select the folder
+                string folder = await folderDialog.ShowAsync(MainWindow.Instance);
+            
+                // Check if the folder exists
+                if (!string.IsNullOrEmpty(folder) && Directory.Exists(folder))
+                    modPath = folder;
+            }
+
+            return modPath;
+        }
+
         public async void Populate()
         {
-            // Create a new folder dialog
-            OpenFolderDialog folderDialog = new();
-            folderDialog.Title = "Select your Mods folder";
-
-            // Wait for the user to select the folder
-            string folder = await folderDialog.ShowAsync(MainWindow.Instance);
+            Files.Clear();
             
-            // Check if the folder exists
-            if (string.IsNullOrEmpty(folder))
-                return;
-
-            if (!Directory.Exists(folder))
-                return;
+            string folder = await GetModPath();
 
             // Get all files in the folder and add them to the listbox
             string[] files = Directory.GetFiles(folder, "*.tmod");
