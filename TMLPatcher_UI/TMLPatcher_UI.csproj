@@ -16,14 +16,6 @@
         <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
         <PackageReference Include="TML.Patcher" Version="0.2.0.1" />
     </ItemGroup>
-    <ItemGroup>
-      <Reference Include="TML.Files, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\TML.Files.dll</HintPath>
-      </Reference>
-      <Reference Include="TML.Patcher.Backend, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\TML.Patcher.Backend.dll</HintPath>
-      </Reference>
-    </ItemGroup>
 
     <PropertyGroup>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
