@@ -25,7 +25,8 @@
             <TextBox HorizontalAlignment="Stretch" Watermark="tModLoader version" Text="{Binding TmlVersion, Mode=TwoWay}" />
             <Button Command="{Binding RepackMod}"
                     HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Center">
+                    HorizontalContentAlignment="Center"
+                    IsEnabled="{Binding CanRepack}">
                 Repack mod!
             </Button>
         </StackPanel>
